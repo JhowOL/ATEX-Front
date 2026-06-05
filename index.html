@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>São Francisco Acessibilidade</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>São Francisco Acessibilidade</h1>
+    <p>Reporte barreiras de acessibilidade no bairro São Francisco, Curitiba/PR</p>
+  </header>
+
+  <main>
+    <!-- Seção: formulário de report -->
+    <section id="secao-reportar" aria-labelledby="titulo-reportar">
+      <h2 id="titulo-reportar">Reportar problema</h2>
+
+      <form id="form-report" novalidate>
+        <div class="campo">
+          <label for="endereco">Endereço <span aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="endereco"
+            name="endereco"
+            required
+            aria-required="true"
+            aria-describedby="erro-endereco"
+            placeholder="Ex: Rua das Flores, 123"
+          />
+          <span id="erro-endereco" class="erro" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="severidade">Severidade <span aria-hidden="true">*</span></label>
+          <select
+            id="severidade"
+            name="severidade"
+            required
+            aria-required="true"
+            aria-describedby="erro-severidade"
+          >
+            <option value="">Selecione</option>
+            <option value="1">1 — Baixa</option>
+            <option value="2">2 — Média</option>
+            <option value="3">3 — Alta</option>
+          </select>
+          <span id="erro-severidade" class="erro" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="campo">
+          <label for="descricao">Descrição (opcional)</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            rows="3"
+            placeholder="Descreva o problema com detalhes"
+          ></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="foto">Foto (opcional — JPEG ou PNG, máx 5 MB)</label>
+          <input
+            type="file"
+            id="foto"
+            name="foto"
+            accept="image/jpeg,image/png"
+            aria-describedby="erro-foto"
+          />
+          <span id="erro-foto" class="erro" role="alert" aria-live="polite"></span>
+        </div>
+
+        <button type="submit">Enviar report</button>
+        <span id="feedback-form" role="status" aria-live="polite"></span>
+      </form>
+    </section>
+
+    <!-- Seção: lista de reports -->
+    <section id="secao-lista" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Reports registrados</h2>
+      <ul id="lista-reports" aria-label="Lista de reports de acessibilidade"></ul>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/lista.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>
