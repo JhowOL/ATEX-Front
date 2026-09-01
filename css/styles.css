@@ -1,5 +1,6 @@
 /* Reset mínimo */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 
 :root {
   --cor-primaria: #1a5276;
@@ -136,6 +137,28 @@ button[type="submit"]:hover { background: #154360; }
 .sev-1 { background: #27ae60; }
 .sev-2 { background: #e67e22; }
 .sev-3 { background: var(--cor-erro); }
+.tipo-elogio { background: #27ae60; }
+
+/* Campo tipo (radio buttons) */
+.campo-tipo {
+  border: none;
+  padding: 0;
+}
+
+.campo-tipo legend {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: normal;
+  margin-right: 1rem;
+  cursor: pointer;
+}
 
 /* Comentários */
 .comentarios-toggle {
