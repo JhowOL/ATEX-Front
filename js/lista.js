@@ -24,13 +24,18 @@ function renderReport(report) {
 
   const data = new Date(report.created_at).toLocaleString('pt-BR');
   const sevLabels = { 1: 'Baixa', 2: 'Média', 3: 'Alta' };
+  const isElogio = report.tipo === 'elogio';
+
+  const badgeTipo = isElogio
+    ? `<span class="severidade-badge tipo-elogio" aria-label="Elogio">Elogio</span>`
+    : `<span class="severidade-badge sev-${report.severidade}" aria-label="Severidade ${sevLabels[report.severidade]}">
+        Severidade ${report.severidade} — ${sevLabels[report.severidade]}
+       </span>`;
 
   li.innerHTML = `
     <h3>${escapeHtml(report.endereco)}</h3>
     <p class="report-meta">
-      <span class="severidade-badge sev-${report.severidade}" aria-label="Severidade ${sevLabels[report.severidade]}">
-        Severidade ${report.severidade} — ${sevLabels[report.severidade]}
-      </span>
+      ${badgeTipo}
       &nbsp;· ${data}
     </p>
     ${report.descricao ? `<p>${escapeHtml(report.descricao)}</p>` : ''}

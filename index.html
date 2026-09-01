@@ -15,9 +15,24 @@
   <main>
     <!-- Seção: formulário de report -->
     <section id="secao-reportar" aria-labelledby="titulo-reportar">
-      <h2 id="titulo-reportar">Reportar problema</h2>
+      <h2 id="titulo-reportar">Reportar</h2>
 
       <form id="form-report" novalidate>
+        <div class="campo">
+          <fieldset class="campo-tipo" aria-required="true">
+            <legend>Tipo <span aria-hidden="true">*</span></legend>
+            <label class="radio-label">
+              <input type="radio" name="tipo" value="problema" checked />
+              Problema
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="tipo" value="elogio" />
+              Elogio
+            </label>
+          </fieldset>
+          <span id="erro-tipo" class="erro" role="alert" aria-live="polite"></span>
+        </div>
+
         <div class="campo">
           <label for="endereco">Endereço <span aria-hidden="true">*</span></label>
           <input
@@ -32,12 +47,11 @@
           <span id="erro-endereco" class="erro" role="alert" aria-live="polite"></span>
         </div>
 
-        <div class="campo">
+        <div class="campo" id="campo-severidade">
           <label for="severidade">Severidade <span aria-hidden="true">*</span></label>
           <select
             id="severidade"
             name="severidade"
-            required
             aria-required="true"
             aria-describedby="erro-severidade"
           >
