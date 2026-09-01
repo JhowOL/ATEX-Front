@@ -108,6 +108,9 @@ button[type="submit"]:hover { background: #154360; }
   border: 1px solid #ddd;
   border-radius: var(--raio);
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .report-item h3 { font-size: 1rem; margin-bottom: 0.25rem; }
