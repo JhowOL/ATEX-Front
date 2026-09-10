@@ -49,6 +49,7 @@ function renderReport(report) {
         <input type="text" placeholder="Seu comentário" aria-label="Texto do comentário" required />
         <button type="submit">Enviar</button>
       </form>
+      <span class="erro-comentario erro" role="alert" aria-live="polite"></span>
     </div>
   `;
 
@@ -65,15 +66,21 @@ function renderReport(report) {
   li.querySelector('.form-comentario').addEventListener('submit', async (e) => {
     e.preventDefault();
     const input = e.target.querySelector('input');
+    const erroEl = li.querySelector('.erro-comentario');
     const conteudo = input.value.trim();
+    erroEl.textContent = '';
     if (!conteudo) return;
     try {
       await createComentario(report.id, conteudo);
       input.value = '';
       await renderComentarios(report.id, li);
     } catch (err) {
-      alert(err.message);
+      erroEl.textContent = err.message;
     }
+  });
+
+  li.querySelector('.form-comentario input').addEventListener('input', () => {
+    li.querySelector('.erro-comentario').textContent = '';
   });
 
   return li;
