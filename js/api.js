@@ -1,5 +1,3 @@
-const API_BASE_URL = 'http://localhost:3000';
-
 async function getReports() {
   const res = await fetch(`${API_BASE_URL}/reports`);
   if (!res.ok) throw new Error('Erro ao buscar reports');
