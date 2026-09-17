@@ -137,10 +137,10 @@ button[type="submit"]:hover { background: #154360; }
   color: #fff;
 }
 
-.sev-1 { background: #27ae60; }
-.sev-2 { background: #e67e22; }
+.sev-1 { background: #1e7e45; }
+.sev-2 { background: #a85906; }
 .sev-3 { background: var(--cor-erro); }
-.tipo-elogio { background: #27ae60; }
+.tipo-elogio { background: #1e7e45; }
 
 /* Campo tipo (radio buttons) */
 .campo-tipo {
