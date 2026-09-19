@@ -163,6 +163,21 @@ button[type="submit"]:hover { background: #154360; }
   cursor: pointer;
 }
 
+/* Rodapé */
+footer {
+  background: var(--cor-primaria);
+  color: #fff;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 /* Comentários */
 .comentarios-toggle {
   background: none;
